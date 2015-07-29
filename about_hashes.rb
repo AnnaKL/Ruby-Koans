@@ -30,14 +30,15 @@ class AboutHashes < Neo::Koan
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    # fetch raises a Key Error if key does not excists, [] gives only nil.
   end
 
   def test_changing_hashes
     hash = { :one => "uno", :two => "dos" }
     hash[:one] = "eins"
 
-    expected = { :one => __, :two => "dos" }
-    assert_equal __, hash
+    expected = { :one => "eins", :two => "dos" }
+    assert_equal hash = { :one => "eins", :two => "dos" }, hash
 
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
